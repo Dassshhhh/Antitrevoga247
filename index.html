@@ -1,95 +1,165 @@
-<!DOCTYPE html>
+html_content = '''<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Экстренный сброс 24/7</title>
+    <title>Карманный помощник: 49 Экспресс-алгоритмов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f7f6f2;
-            --card-bg: #ffffff;
-            --text-main: #2c322b;
-            --text-sub: #8c958c;
-            --accent-bg: #e5ebe5;
-            --accent-icon: #5a665a;
-            --border: #edf0ed;
-            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --bg-base: #fafafd;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8fafc;
+            --border-color: rgba(226, 232, 240, 0.8);
+            --border-active: rgba(197, 160, 89, 0.4);
+            
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            
+            --accent-gold: #c5a059;
+            --accent-gold-light: #f4efe6;
+            --accent-glow: rgba(197, 160, 89, 0.12);
+            --accent-gradient: linear-gradient(135deg, #c5a059 0%, #d4af37 50%, #e6ca65 100%);
+            
+            --radius-xl: 24px;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            
+            --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.03), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+            --shadow-active: 0 12px 30px -4px rgba(197, 160, 89, 0.15), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        @page {
+            size: A4;
+            margin: 12mm 10mm;
+            background-color: #fafafd;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: var(--font);
-            padding: 20px 16px 40px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding: 24px 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .app-container {
-            width: 100%;
-            max-width: 440px;
+        /* HEADER SECTION */
+        .app-header {
+            text-align: center;
+            padding: 36px 24px;
+            margin-bottom: 32px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-subtle);
+            position: relative;
+            overflow: hidden;
         }
 
-        .header-info {
-            display: flex;
-            justify-content: space-between;
+        .app-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+        }
+
+        .header-badge {
+            display: inline-flex;
             align-items: center;
-            margin-bottom: 20px;
-            padding: 0 4px;
-        }
-
-        .header-title {
-            font-size: 13px;
+            gap: 6px;
+            padding: 6px 16px;
+            background: var(--accent-gold-light);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            border-radius: 100px;
+            font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.8px;
-            color: var(--text-sub);
+            letter-spacing: 0.12em;
             text-transform: uppercase;
+            color: #8c6d2d;
+            margin-bottom: 14px;
         }
 
-        .header-count {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-sub);
-            background: #eae8e1;
-            padding: 2px 10px;
-            border-radius: 12px;
+        .app-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .app-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* CATEGORY SECTION */
+        .category-group {
+            margin-bottom: 28px;
         }
 
         .category-title {
-            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
             font-weight: 700;
-            letter-spacing: 0.8px;
-            color: var(--accent-icon);
             text-transform: uppercase;
-            margin: 24px 4px 10px;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin: 0 0 14px 6px;
         }
 
+        .category-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        /* ACCORDION CARDS */
         .buttons-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         details {
-            background: var(--card-bg);
-            border-radius: 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.015);
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-subtle);
         }
 
         details[open] {
-            border-color: #d1d8d1;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border-color: var(--border-active);
+            box-shadow: var(--shadow-active);
+            background: #ffffff;
         }
 
         summary {
-            padding: 14px 16px;
             list-style: none;
+            padding: 16px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -97,24 +167,28 @@
             user-select: none;
         }
 
-        summary::-webkit-details-marker { display: none; }
+        summary::-webkit-details-marker {
+            display: none;
+        }
 
         .summary-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
         }
 
         .icon-circle {
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent-bg);
-            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.25rem;
             flex-shrink: 0;
-            font-size: 18px;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .text-block {
@@ -124,907 +198,416 @@
         }
 
         .cat-tag {
-            font-size: 10px;
+            font-size: 0.68rem;
             font-weight: 700;
-            letter-spacing: 0.6px;
-            color: var(--text-sub);
             text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-gold);
         }
 
         .item-name {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-main);
-            line-height: 1.3;
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         .arrow-btn {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: #f7f9f7;
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            transition: transform 0.2s ease;
-        }
-
-        .arrow-btn svg {
-            width: 14px;
-            height: 14px;
-            stroke: var(--text-sub);
-            fill: none;
-            stroke-width: 2;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
         }
 
         details[open] .arrow-btn {
             transform: rotate(180deg);
+            color: #8c6d2d;
+            background: var(--accent-gold-light);
+            border-color: rgba(197, 160, 89, 0.3);
         }
 
+        .arrow-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* STEPS CONTENT */
         .steps-content {
-            padding: 4px 18px 16px 68px;
-            border-top: 1px solid var(--border);
-            background: #fafbf9;
+            padding: 0 20px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .step-row { margin-top: 10px; font-size: 13.5px; line-height: 1.4; color: #4a544b; }
-        .step-num { font-weight: 700; color: var(--accent-icon); margin-right: 4px; }
+        .step-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .step-num {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            margin-top: 1px;
+        }
     </style>
 </head>
 <body>
 
-<div class="app-container">
-    <div class="header-info">
-        <span class="header-title">Все алгоритмы</span>
-        <span class="header-count">49</span>
+    <header class="app-header">
+        <div class="header-badge">✦ Pocket Protocol ✦</div>
+        <h1>Карманный помощник</h1>
+        <p>49 экспресс-алгоритмов самопомощи и стабилизации состояния</p>
+    </header>
+
+    <!-- 1. Сон и вечер -->
+    <div class="category-group">
+        <div class="category-title">Сон и вечер</div>
+        <div class="buttons-list">
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">💭</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Сон</span>
+                            <span class="item-name">Навязчивые мысли перед сном</span>
+                        </div>
+                    </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Запиши мысль в блокнот на тумбочке.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Скажи: «Я подумаю об этом завтра в 10:00».</div>
+                    <div class="step-row"><span class="step-num">3.</span> Переверни подушку прохладной стороной.</div>
+                </div>
+            </details>
+            
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🛏</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Сон</span>
+                            <span class="item-name">Не могу заснуть больше 30 минут</span>
+                        </div>
+                    </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Встань с кровати, не заставляй себя спать.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Посиди в полумраке без телефона 15 минут.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Вернись в кровать при появлении сонливости.</div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">😱</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Сон</span>
+                            <span class="item-name">Проснулась от кошмара или страха</span>
+                        </div>
+                    </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Включи мягкий ночник, ощути безопасность.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Скажи: «Это был просто сон, я дома».</div>
+                    <div class="step-row"><span class="step-num">3.</span> Сделай пару глотков воды и укутайся.</div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">📱</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Сон</span>
+                            <span class="item-name">Залипание в телефоне перед сном</span>
+                        </div>
+                    </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Поставь будильник и отложи смартфон подальше.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Потянись в кровати всей спиной.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Закрой глаза и начни считать выдохи.</div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">⏰</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Сон</span>
+                            <span class="item-name">Страх не выспаться перед важным днем</span>
+                        </div>
+                    </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Скажи: «Даже просто лежать — это отдых».</div>
+                    <div class="step-row"><span class="step-num">2.</span> Не смотри на часы, отверни экран.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Сосредоточься на расслаблении мышц лица.</div>
+                </div>
+            </details>
+        </div>
     </div>
 
-    <!-- 1. СЕМЬЯ И ДЕТИ -->
-    <div class="category-title">Семья и дети</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">👶</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Семья</span>
-                        <span class="item-name">У ребёнка незнакомые симптомы</span>
+    <!-- 2. Эмоции и состояние -->
+    <div class="category-group">
+        <div class="category-title">Эмоции и состояние</div>
+        <div class="buttons-list">
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🌊</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Эмоции</span>
+                            <span class="item-name">Ощущение безысходности и тупика</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Снизь фокус до следующих 15 минут.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Не принимай глобальных решений прямо сейчас.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Сделай теплое питье.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Запрет на поиск в интернете на 20 минут.</div>
-                <div class="step-row"><span class="step-num">2.</span> Запиши факт: температура/сыпь/кашель без домыслов.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сделай 1 целевое действие: вызови врача или дай воду.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">😴</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Семья</span>
-                        <span class="item-name">Ребёнок долго спит, проверяю дыхание</span>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">😭</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Эмоции</span>
+                            <span class="item-name">Подступают слезы, а я не одна</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Отойти в уборную или на свежий воздух.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Ополосни лицо или руки прохладной водой.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Разреши себе поплакать позже дома.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Положи руку себе на грудь, сбрось напряжение.</div>
-                <div class="step-row"><span class="step-num">2.</span> Проверь дыхание 1 раз, не будя ребенка.</div>
-                <div class="step-row"><span class="step-num">3.</span> Отодвинься от кроватки и налей себе воды.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">📞</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Семья</span>
-                        <span class="item-name">Близкий долго не отвечает на звонок</span>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🌋</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Эмоции</span>
+                            <span class="item-name">Накипело, резкая вспышка гнева</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Сожми и разжми кулаки 5 раз.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Сбрось физический импульс (потопай, посомни бумагу).</div>
+                    <div class="step-row"><span class="step-num">3.</span> Посчитай от 10 до 1 в обратном порядке.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Напомни себе: «Занят, включен виброрежим, за рулем».</div>
-                <div class="step-row"><span class="step-num">2.</span> Положи телефон экраном вниз.</div>
-                <div class="step-row"><span class="step-num">3.</span> Поставь таймер на 15 минут до следующего звонка.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">💔</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Семья</span>
-                        <span class="item-name">Боюсь, что делаю с ребёнком что-то не так</span>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🔋</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Эмоции</span>
+                            <span class="item-name">Полная апатия и астения</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Отмени все необязательные дела.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Дай себе право абсолютно ничего не делать.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Проветри комнату и ляг в удобную позу.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Снизь планку: идеальных родителей не существует.</div>
-                <div class="step-row"><span class="step-num">2.</span> Если включила мультики — выдохни, это твой ресурс.</div>
-                <div class="step-row"><span class="step-num">3.</span> Обними ребенка на 10 секунд без слов.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🗯</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Семья</span>
-                        <span class="item-name">Сорвалась и накричала на ребенка</span>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🌀</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Эмоции</span>
+                            <span class="item-name">Сильное ощущение вины за прошлые ошибки</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Напомни: «Тогда я поступала из своих ресурсов».</div>
+                    <div class="step-row"><span class="step-num">2.</span> Переключись на настоящее момент.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Сделай 1 доброе дело для себя прямо сейчас.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Выйди в другую комнату на 2 минуты, выдохни.</div>
-                <div class="step-row"><span class="step-num">2.</span> Скажи себе: «Я ошиблась, но я не плохая мать».</div>
-                <div class="step-row"><span class="step-num">3.</span> Подойди к ребенку и спокойно извинись.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🌩</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Семья</span>
-                        <span class="item-name">Конфликт и ссора с партнером</span>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🪞</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Эмоции</span>
+                            <span class="item-name">Синдром самозванца: «Я ничего не умею»</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Назови 1 реальный факт своего достижения.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Перестань сравнивать свое начало с чужим середина.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Продолжай работу маленьким шагом.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Объяви паузу: «Мне нужно 10 минут остыть».</div>
-                <div class="step-row"><span class="step-num">2.</span> Умойся прохладной водой.</div>
-                <div class="step-row"><span class="step-num">3.</span> Вернись к разговору через «Я-сообщения».</div>
-            </div>
-        </details>
+            </details>
+
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🪫</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Эмоции</span>
+                            <span class="item-name">Эмоциональное выгорание</span>
+                        </div>
+                    </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Поставь границы между работой и отдыхом.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Выдели 1 час только для приятного дела.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Попроси о помощи или делегируй task.</div>
+                </div>
+            </details>
+        </div>
     </div>
 
-    <!-- 2. ЗДОРОВЬЕ И ИПОХОНДРИЯ -->
-    <div class="category-title">Здоровье и ипохондрия</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🩺</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Здоровье</span>
-                        <span class="item-name">Обнаружен новый незнакомый симптом</span>
+    <!-- 3. Экстренные состояния -->
+    <div class="category-group">
+        <div class="category-title">Экстренные состояния</div>
+        <div class="buttons-list">
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🚨</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Экстренно</span>
+                            <span class="item-name">Паническая атака прямо сейчас</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Напомни себе: паника безопасна и пройдет через 10 минут.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Опирайся ногами на пол, упрись руками в колени.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Техника 5-4-3-2-1: увидь 5 предметов, трогай 4 текстуры.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Выпей полстакана прохладной воды.</div>
-                <div class="step-row"><span class="step-num">2.</span> Дай телу 30 минут: адреналин усиливает ощущения.</div>
-                <div class="step-row"><span class="step-num">3.</span> Не ищи симптомы на форумах.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">😵</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Здоровье</span>
-                        <span class="item-name">Закружилась голова, кажется, что упаду</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Сядь или прислонись спиной к стене.</div>
-                <div class="step-row"><span class="step-num">2.</span> Сильно упрись пятками в пол.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сосредоточься на ощущении опоры под ногами.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">😮‍💨</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Здоровье</span>
-                        <span class="item-name">Не могу вдохнуть полной грудью</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Перестань делать частые глубокие вдохи.</div>
-                <div class="step-row"><span class="step-num">2.</span> Сделай длинный и медленный ВЫДОХ.</div>
-                <div class="step-row"><span class="step-num">3.</span> Дыши по схеме: вдох на 3 счета, выдох на 6.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🐍</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Здоровье</span>
-                        <span class="item-name">Подозреваю у себя опасную болезнь</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Раздели: «У меня есть тревожная мысль, а не диагноз».</div>
-                <div class="step-row"><span class="step-num">2.</span> Запиши мысль на листок и убери его.</div>
-                <div class="step-row"><span class="step-num">3.</span> Вернись к физическому делу (умывание/уборка).</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">💓</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Здоровье</span>
-                        <span class="item-name">Сильно колотится сердце</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Напомни себе: сердце здоровое, это выброс адреналина.</div>
-                <div class="step-row"><span class="step-num">2.</span> Нажми слегка на закрытые веки на 5 секунд.</div>
-                <div class="step-row"><span class="step-num">3.</span> Медленно выпей полстакана холодной воды.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🫨</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Здоровье</span>
-                        <span class="item-name">Дрожь в теле и внутренний тремор</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Не сдерживай дрожь — потряси руками и ногами специально.</div>
-                <div class="step-row"><span class="step-num">2.</span> Накинь теплое плед или кофту.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сделай 3 глубоких вдоха с громким выдохом.</div>
-            </div>
-        </details>
-    </div>
+            </details>
 
-    <!-- 3. РАБОТА И СОЦИУМ -->
-    <div class="category-title">Работа и социум</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">📩</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Работа</span>
-                        <span class="item-name">Паника перед собеседованием</span>
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🌫</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Экстренно</span>
+                            <span class="item-name">Дереализация / «всё нереально»</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Возьми в руки холодный предмет или кубик льда.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Назови вслух свое имя, где ты и какой сегодня день.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Похлопай себя ладонями по плечам и бедрам.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Опусти плечи и расслабь челюсть.</div>
-                <div class="step-row"><span class="step-num">2.</span> Напомни: вы выбираете друг друга на равных.</div>
-                <div class="step-row"><span class="step-num">3.</span> Держи перед собой шпаргалку с 2 тезисами.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">📞</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Работа</span>
-                        <span class="item-name">Ступор перед важным звонком</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Напиши первые 3 слова первой фразы.</div>
-                <div class="step-row"><span class="step-num">2.</span> Сделай один плавный выдох.</div>
-                <div class="step-row"><span class="step-num">3.</span> Нажми «Вызов» на счет три.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">💬</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Работа</span>
-                        <span class="item-name">Написала резкий ответ и жалею</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Отложи телефон на 5 минут.</div>
-                <div class="step-row"><span class="step-num">2.</span> Любой контекст можно сгладить уточнением.</div>
-                <div class="step-row"><span class="step-num">3.</span> Напиши короткое нейтральное пояснение.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">⌛️</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Работа</span>
-                        <span class="item-name">Не успеваю по дедлайнам</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Выпиши все задачи списком.</div>
-                <div class="step-row"><span class="step-num">2.</span> Выбери ровно ОДНО микро-действие на 15 минут.</div>
-                <div class="step-row"><span class="step-num">3.</span> Предупреди о задержке вежливым шаблоном.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🙅‍♀️</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Работа</span>
-                        <span class="item-name">Боюсь отказать / сказать «нет»</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Возьми паузу: «Мне нужно сверять расписание».</div>
-                <div class="step-row"><span class="step-num">2.</span> «Нет» задаче — это не «нет» человеку.</div>
-                <div class="step-row"><span class="step-num">3.</span> Отправь лаконичный отказ без оправданий.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🗣</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Работа</span>
-                        <span class="item-name">Страх разговора с иностранцем</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Говори простыми базовыми словами.</div>
-                <div class="step-row"><span class="step-num">2.</span> Используй жесты или переводчик.</div>
-                <div class="step-row"><span class="step-num">3.</span> Улыбнись: собеседник хочет понять, а не проверять.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">📊</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Работа</span>
-                        <span class="item-name">Страх перед публичным выступлением</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Найди доброжелательное лицо в зале.</div>
-                <div class="step-row"><span class="step-num">2.</span> Сделай паузу 3 секунды перед первой фразой.</div>
-                <div class="step-row"><span class="step-num">3.</span> Держи в руках кликер или маркер.</div>
-            </div>
-        </details>
-    </div>
+            </details>
 
-    <!-- 4. ПОВСЕДНЕВНОСТЬ И СОЦИУМ -->
-    <div class="category-title">Повседневность</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🚇</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Социум</span>
-                        <span class="item-name">Накрывает в транспорте / очереди</span>
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">⚡️</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Экстренно</span>
+                            <span class="item-name">Резкие плохие новости</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Сядь на устойчивый стул или кресло.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Сделай медленный вдох и задержи дыхание на 4 сек.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Свяжись с человеком, которому полностью доверяешь.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Найди глазами 3 предмета зеленого цвета.</div>
-                <div class="step-row"><span class="step-num">2.</span> Расслабь плечи и опусти их вниз.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сфокусируйся на треке в наушниках.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">👥</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Социум</span>
-                        <span class="item-name">Кажется, все на меня смотрят</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Посмотри вокруг: люди погружены в телефоны.</div>
-                <div class="step-row"><span class="step-num">2.</span> Поправь одежду для возврата контроля.</div>
-                <div class="step-row"><span class="step-num">3.</span> Продолжай идти в привычном темпе.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🤝</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Социум</span>
-                        <span class="item-name">Встреча с неприятным человеком</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Представь невидимую стену между вами.</div>
-                <div class="step-row"><span class="step-num">2.</span> Заранее подготовь предлог уйти через 20 минут.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сожми в кармане ключи или монетку.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">❓</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Социум</span>
-                        <span class="item-name">Страх нового и неизвестного</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Разбей дело на 2-минутный шаг.</div>
-                <div class="step-row"><span class="step-num">2.</span> Скажи: «Я просто пробую, а не решаю навсегда».</div>
-                <div class="step-row"><span class="step-num">3.</span> Сделай первое простое действие.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🚪</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Социум</span>
-                        <span class="item-name">Страх зайти в незнакомое место</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Осмотри вход снаружи, восстанови дыхание.</div>
-                <div class="step-row"><span class="step-num">2.</span> Зайди и сразу найди место, где можно встать.</div>
-                <div class="step-row"><span class="step-num">3.</span> Достань телефон, чтобы почувствовать комфорт.</div>
-            </div>
-        </details>
-    </div>
+            </details>
 
-    <!-- 5. ДЕНЬГИ -->
-    <div class="category-title">Деньги</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">💳</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Деньги</span>
-                        <span class="item-name">Потратила лишнее, стыд и страх</span>
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🧊</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Экстренно</span>
+                            <span class="item-name">Шок или эмоциональное онемение</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Укутайся в плед, чтобы вернуть ощущение тепла.</div>
+                    <div class="step-row"><span class="step-num">2.</span> Медленно потягивай сладкий теплый чай.</div>
+                    <div class="step-row"><span class="step-num">3.</span> Дай психике время переработать событие.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Закрой приложение банка.</div>
-                <div class="step-row"><span class="step-num">2.</span> «Покупка сделана, ругать себя бесполезно».</div>
-                <div class="step-row"><span class="step-num">3.</span> Наметь мягкий план расходов на завтра.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">📈</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Деньги</span>
-                        <span class="item-name">Страх за экономику и будущее</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Выключи новости на 24 часа.</div>
-                <div class="step-row"><span class="step-num">2.</span> Вернись к тому, что под контролем прямо сейчас.</div>
-                <div class="step-row"><span class="step-num">3.</span> Выполни простое бытовое дело.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">💸</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Деньги</span>
-                        <span class="item-name">Страх остаться без средств</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Назови 3 имеющихся ресурса прямо сейчас.</div>
-                <div class="step-row"><span class="step-num">2.</span> Вспомни, как раньше справлялась с трудностями.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сделай 1 целевое действие для устойчивости.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">💼</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Деньги</span>
-                        <span class="item-name">Страх потери работы / дохода</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Запиши 3 своих ключевых навыка.</div>
-                <div class="step-row"><span class="step-num">2.</span> Напомни: рынок широк, варианты всегда есть.</div>
-                <div class="step-row"><span class="step-num">3.</span> Обнови или просмотри свое резюме.</div>
-            </div>
-        </details>
-    </div>
+            </details>
 
-    <!-- 6. БЕССОННИЦА И ВЕЧЕР -->
-    <div class="category-title">Сон и вечер</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🌃</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Сон</span>
-                        <span class="item-name">Ночные мысли: «А что если...»</span>
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <div class="icon-circle">🕊</div>
+                        <div class="text-block">
+                            <span class="cat-tag">Экстренно</span>
+                            <span class="item-name">Необходима срочная поддержка</span>
+                        </div>
                     </div>
+                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                </summary>
+                <div class="steps-content">
+                    <div class="step-row"><span class="step-num">1.</span> Обними себя за плечи (самообъятие).</div>
+                    <div class="step-row"><span class="step-num">2.</span> Напиши близкому: «Мне сейчас тяжело, просто будь рядом».</div>
+                    <div class="step-row"><span class="step-num">3.</span> Позвони на горячую линию психологической помощи.</div>
                 </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Положи телефон экраном вниз.</div>
-                <div class="step-row"><span class="step-num">2.</span> Переверни подушку прохладной стороной.</div>
-                <div class="step-row"><span class="step-num">3.</span> Перечисляй предметы в комнате по алфавиту.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🌙</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Сон</span>
-                        <span class="item-name">Проснулась в 3 ночи от тревоги</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Накройся одеялом с головой на 1 минуту.</div>
-                <div class="step-row"><span class="step-num">2.</span> Сделай 5 длинных плавных выдохов.</div>
-                <div class="step-row"><span class="step-num">3.</span> Повтори: «Ночью мозг искажает всё, я в безопасности».</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">⏰</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Сон</span>
-                        <span class="item-name">Страх проспать важный будильник</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Проверь время будильника и громкость 1 раз.</div>
-                <div class="step-row"><span class="step-num">2.</span> Поставь 2-й будильник с разницей в 5 минут.</div>
-                <div class="step-row"><span class="step-num">3.</span> Убери телефон подальше от кровати.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🛏</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Сон</span>
-                        <span class="item-name">Кручусь 2 часа и не могу заснуть</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Встань с кровати на 10 минут.</div>
-                <div class="step-row"><span class="step-num">2.</span> Выпей немного теплой воды в полумраке.</div>
-                <div class="step-row"><span class="step-num">3.</span> Вернись в кровать, когда появится сонливость.</div>
-            </div>
-        </details>
+            </details>
+        </div>
     </div>
-
-    <!-- 7. ПОЕЗДКИ И ФОБИИ -->
-    <div class="category-title">Поездки и фобии</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">✈️</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Поездки</span>
-                        <span class="item-name">Тревога перед поездой / переездом</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Проверь документы и билеты ровно 1 раз.</div>
-                <div class="step-row"><span class="step-num">2.</span> «Решаю вопросы по мере их поступления».</div>
-                <div class="step-row"><span class="step-num">3.</span> Возьми в руку привычный предмет-антистресс.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🚆</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Поездки</span>
-                        <span class="item-name">Страх опоздать на рейс / поезд</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Заложи +20 минут на случай пробок.</div>
-                <div class="step-row"><span class="step-num">2.</span> Сложи сумку у выхода заранее.</div>
-                <div class="step-row"><span class="step-num">3.</span> Перестань постоянно проверять часы.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🕷</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Фобии</span>
-                        <span class="item-name">Насекомое / паук в комнате</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Отоди на безопасные 2 шага.</div>
-                <div class="step-row"><span class="step-num">2.</span> Выдохни и сбрось оцепенение.</div>
-                <div class="step-row"><span class="step-num">3.</span> Накрой стаканом или позови кого-то.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🌩</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Фобии</span>
-                        <span class="item-name">Страх грозы / сильной непогоды</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Закрой окна и задерни шторы.</div>
-                <div class="step-row"><span class="step-num">2.</span> Включи спокойный фоновый звук или фильм.</div>
-                <div class="step-row"><span class="step-num">3.</span> Напомни себе: здание надежно защищает.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🛗</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Фобии</span>
-                        <span class="item-name">Страх застрять в лифте</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Встань ровно, оперевшись спиной на стенку.</div>
-                <div class="step-row"><span class="step-num">2.</span> В лифте есть вентиляция, воздуха достаточно.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сфокусируйся на экране телефона.</div>
-            </div>
-        </details>
-    </div>
-
-    <!-- 8. ОСТРЫЙ СТРАХ И ПАНИКА -->
-    <div class="category-title">Острый страх и паника</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🚨</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Паника</span>
-                        <span class="item-name">Нахлынула внезапная паника</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Ополосни лицо и руки холодной водой.</div>
-                <div class="step-row"><span class="step-num">2.</span> Назови вслух 5 окружающих предметов.</div>
-                <div class="step-row"><span class="step-num">3.</span> Интенсивно потопай ногами 10 секунд.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🧠</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Паника</span>
-                        <span class="item-name">Навязчивые мысли раскручивают страх</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Скажи вслух: «Стоп, это просто мысль».</div>
-                <div class="step-row"><span class="step-num">2.</span> Переключи внимание на физическое ощущение.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сосчитай от 100 назад по 7.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🧊</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Паника</span>
-                        <span class="item-name">Чувство оцепенения и ступор</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Пососи кислую конфету или лимон.</div>
-                <div class="step-row"><span class="step-num">2.</span> Сожми и разжми кулаки 10 раз.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сделай громкий выдох со звуком.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🌫</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Паника</span>
-                        <span class="item-name">Кажется, что все вокруг нереально</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Потрогай текстурную вещь (ткань/стол).</div>
-                <div class="step-row"><span class="step-num">2.</span> Назови свое имя и сегодняшнюю дату.</div>
-                <div class="step-row"><span class="step-num">3.</span> Плотно прижми стопы к полу.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🤯</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Паника</span>
-                        <span class="item-name">Страх сойти с ума / потерять контроль</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> При тревоге никто не сходит с ума, это защита.</div>
-                <div class="step-row"><span class="step-num">2.</span> Сядь на стул и обними себя за плечи.</div>
-                <div class="step-row"><span class="step-num">3.</span> Подыши ровно 2 минуты.</div>
-            </div>
-        </details>
-    </div>
-
-    <!-- 9. ЭМОЦИИ И САМООЦЕНКА -->
-    <div class="category-title">Эмоции и самооценка</div>
-    <div class="buttons-list">
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🥺</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Эмоции</span>
-                        <span class="item-name">Острое чувство вины перед кем-то</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Раздели вину и ответственность.</div>
-                <div class="step-row"><span class="step-num">2.</span> Если можно исправить — сделай 1 шаг.</div>
-                <div class="step-row"><span class="step-num">3.</span> Если нет — скажи себе: «Я поступила как могла».</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🌊</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Эмоции</span>
-                        <span class="item-name">Стыд за сказанное или сделанное</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Люди забывают чужие ошибки через день.</div>
-                <div class="step-row"><span class="step-num">2.</span> Положи руку на грудь и глубоко выдохни.</div>
-                <div class="step-row"><span class="step-num">3.</span> Переключись на физическую активность.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🎭</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Эмоции</span>
-                        <span class="item-name">Синдром самозванца: «Я ничего не умею»</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Выпиши 3 реальных факта своих успехов.</div>
-                <div class="step-row"><span class="step-num">2.</span> Самозванцы не сомневаются в себе.</div>
-                <div class="step-row"><span class="step-num">3.</span> Сделай очередную задачу без перфекционизма.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">🫠</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Эмоции</span>
-                        <span class="item-name">Полное выгорание и отсутствие сил</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Отмени или перенеси 1 необязательное дело.</div>
-                <div class="step-row"><span class="step-num">2.</span> Лежи 15 минут без телефона и мыслей.</div>
-                <div class="step-row"><span class="step-num">3.</span> Выпей теплый чай в тишине.</div>
-            </div>
-        </details>
-        <details>
-            <summary>
-                <div class="summary-left">
-                    <div class="icon-circle">😡</div>
-                    <div class="text-block">
-                        <span class="cat-tag">Эмоции</span>
-                        <span class="item-name">Накипела злость и раздражение</span>
-                    </div>
-                </div>
-                <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-            </summary>
-            <div class="steps-content">
-                <div class="step-row"><span class="step-num">1.</span> Потопай ногами или порви листок бумаги.</div>
-                <div class="step-row"><span class="step-num">2.</span> Назови про себя: «Я сейчас очень злюсь».</div>
-                <div class="step-row"><span class="step-num">3.</span> Выдохни через сжатые губы.</div>
-            </div>
-        </details>
-    </div>
-
-</div>
 
 </body>
 </html>
+'''
+
+with open('pocket_helper_light.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+from weasyprint import HTML
+HTML('pocket_helper_light.html').write_pdf('pocket_helper_light.pdf')
+print("Light version generated successfully.")
