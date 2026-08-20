@@ -1,606 +1,1242 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Карманный помощник: 49 Экспресс-алгоритмов</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-base: #fafafd;
-            --bg-card: #ffffff;
-            --bg-card-hover: #f8fafc;
-            --border-color: rgba(226, 232, 240, 0.8);
-            --border-active: rgba(197, 160, 89, 0.4);
-            
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #94a3b8;
-            
-            --accent-gold: #c5a059;
-            --accent-gold-light: #f4efe6;
-            --accent-glow: rgba(197, 160, 89, 0.12);
-            --accent-gradient: linear-gradient(135deg, #c5a059 0%, #d4af37 50%, #e6ca65 100%);
-            
-            --radius-xl: 24px;
-            --radius-lg: 16px;
-            --radius-md: 12px;
-            --radius-sm: 8px;
-            
-            --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.03), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-            --shadow-active: 0 12px 30px -4px rgba(197, 160, 89, 0.15), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карманный помощник — 49 экспресс-алгоритмов</title>
+  <style>
+    :root {
+      --bg-color: #FDFBF7;
+      --card-bg: #FFFFFF;
+      --text-main: #1A212D;
+      --text-muted: #7F8C8D;
+      --accent-gold: #A8823D;
+      --accent-gold-light: #D4B26F;
+      --border-color: #E9ECEF;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
 
-        @page {
-            size: A4;
-            margin: 12mm 10mm;
-            background-color: #fafafd;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
 
-        body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            padding: 24px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .container {
+      width: 100%;
+      max-width: 680px;
+    }
 
-        /* HEADER SECTION */
-        .app-header {
-            text-align: center;
-            padding: 36px 24px;
-            margin-bottom: 32px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-subtle);
-            position: relative;
-            overflow: hidden;
-        }
+    /* Header Badge */
+    .header-badge {
+      text-align: center;
+      margin-bottom: 24px;
+    }
 
-        .app-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--accent-gradient);
-        }
+    .badge-pill {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(168, 130, 61, 0.08);
+      border: 1px solid rgba(168, 130, 61, 0.2);
+      border-radius: 20px;
+      color: var(--accent-gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-        .header-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 16px;
-            background: var(--accent-gold-light);
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            border-radius: 100px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #8c6d2d;
-            margin-bottom: 14px;
-        }
+    .header-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
 
-        .app-header h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: #0f172a;
-            margin-bottom: 8px;
-        }
+    .header-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
 
-        .app-header p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 500;
-            max-width: 480px;
-            margin: 0 auto;
-        }
+    /* Category Section */
+    .category-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 32px 0 16px 4px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
 
-        /* CATEGORY SECTION */
-        .category-group {
-            margin-bottom: 28px;
-        }
+    /* Accordion Item */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
 
-        .category-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            margin: 0 0 14px 6px;
-        }
+    .card:hover {
+      border-color: var(--accent-gold-light);
+    }
 
-        .category-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border-color);
-        }
+    .card-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
 
-        /* ACCORDION CARDS */
-        .buttons-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+    .card-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-        details {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-subtle);
-        }
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #F8F9FA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
 
-        details[open] {
-            border-color: var(--border-active);
-            box-shadow: var(--shadow-active);
-            background: #ffffff;
-        }
+    .card-text-group {
+      display: flex;
+      flex-direction: column;
+    }
 
-        summary {
-            list-style: none;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            user-select: none;
-        }
+    .card-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
 
-        summary::-webkit-details-marker {
-            display: none;
-        }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
 
-        .summary-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
+    .arrow-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #F8F9FA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
 
-        .icon-circle {
-            width: 44px;
-            height: 44px;
-            border-radius: var(--radius-md);
-            background: #f8fafc;
-            border: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            flex-shrink: 0;
-            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);
-        }
+    .arrow-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--text-muted);
+    }
 
-        .text-block {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
+    /* Expand Logic */
+    .card-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background: #FAFAFA;
+      border-top: 1px solid transparent;
+    }
 
-        .cat-tag {
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-gold);
-        }
+    .card.open .card-body {
+      max-height: 300px;
+      border-top-color: var(--border-color);
+      padding: 20px;
+    }
 
-        .item-name {
-            font-size: 0.98rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
+    .card.open .arrow-icon {
+      transform: rotate(180deg);
+      background: rgba(168, 130, 61, 0.1);
+    }
 
-        .arrow-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: #f8fafc;
-            border: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            transition: all 0.2s ease;
-        }
+    .card.open .arrow-icon svg {
+      fill: var(--accent-gold);
+    }
 
-        details[open] .arrow-btn {
-            transform: rotate(180deg);
-            color: #8c6d2d;
-            background: var(--accent-gold-light);
-            border-color: rgba(197, 160, 89, 0.3);
-        }
+    .step-list {
+      list-style: none;
+    }
 
-        .arrow-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2.2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
+    .step-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #4A5568;
+    }
 
-        /* STEPS CONTENT */
-        .steps-content {
-            padding: 0 20px 20px 80px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
 
-        .step-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            background: #f8fafc;
-            padding: 10px 14px;
-            border-radius: var(--radius-sm);
-            border-left: 3px solid var(--accent-gold);
-        }
-
-        .step-num {
-            font-weight: 700;
-            color: var(--accent-gold);
-            font-size: 0.85rem;
-            margin-top: 1px;
-        }
-    </style>
+    .step-num {
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+  </style>
 </head>
 <body>
 
-    <header class="app-header">
-        <div class="header-badge">✦ Pocket Protocol ✦</div>
-        <h1>Карманный помощник</h1>
-        <p>49 экспресс-алгоритмов самопомощи и стабилизации состояния</p>
-    </header>
+<div class="container">
 
-    <!-- 1. Сон и вечер -->
-    <div class="category-group">
-        <div class="category-title">Сон и вечер</div>
-        <div class="buttons-list">
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">💭</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Сон</span>
-                            <span class="item-name">Навязчивые мысли перед сном</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Запиши мысль в блокнот на тумбочке.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Скажи: «Я подумаю об этом завтра в 10:00».</div>
-                    <div class="step-row"><span class="step-num">3.</span> Переверни подушку прохладной стороной.</div>
-                </div>
-            </details>
-            
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🛏</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Сон</span>
-                            <span class="item-name">Не могу заснуть больше 30 минут</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Встань с кровати, не заставляй себя спать.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Посиди в полумраке без телефона 15 минут.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Вернись в кровать при появлении сонливости.</div>
-                </div>
-            </details>
+  <!-- Header -->
+  <div class="header-badge">
+    <span class="badge-pill">✦ Pocket Protocol ✦</span>
+  </div>
+  <h1 class="header-title">Карманный помощник</h1>
+  <p class="header-subtitle">49 экспресс-алгоритмов самопомощи и стабилизации состояния</p>
 
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">😱</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Сон</span>
-                            <span class="item-name">Проснулась от кошмара или страха</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Включи мягкий ночник, ощути безопасность.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Скажи: «Это был просто сон, я дома».</div>
-                    <div class="step-row"><span class="step-num">3.</span> Сделай пару глотков воды и укутайся.</div>
-                </div>
-            </details>
+  <!-- CATEGORY 1: СОН И ВЕЧЕР (5) -->
+  <div class="category-title">Сон и вечер</div>
 
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">📱</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Сон</span>
-                            <span class="item-name">Залипание в телефоне перед сном</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Поставь будильник и отложи смартфон подальше.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Потянись в кровати всей спиной.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Закрой глаза и начни считать выдохи.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">⏰</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Сон</span>
-                            <span class="item-name">Страх не выспаться перед важным днем</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Скажи: «Даже просто лежать — это отдых».</div>
-                    <div class="step-row"><span class="step-num">2.</span> Не смотри на часы, отверни экран.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Сосредоточься на расслаблении мышц лица.</div>
-                </div>
-            </details>
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">💭</div>
+        <div class="card-text-group">
+          <span class="card-tag">Сон</span>
+          <span class="card-title">Навязчивые мысли перед сном</span>
         </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
     </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Выгрузите все мысли на бумагу без цензуры.</li>
+        <li class="step-item"><span class="step-num">2.</span> Скажите себе: «Я подумаю об этом завтра в 10:00».</li>
+        <li class="step-item"><span class="step-num">3.</span> Переключите фокус на ощупывание текстуры одеяла.</li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- 2. Эмоции и состояние -->
-    <div class="category-group">
-        <div class="category-title">Эмоции и состояние</div>
-        <div class="buttons-list">
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🌊</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Эмоции</span>
-                            <span class="item-name">Ощущение безысходности и тупика</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Снизь фокус до следующих 15 минут.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Не принимай глобальных решений прямо сейчас.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Сделай теплое питье.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">😭</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Эмоции</span>
-                            <span class="item-name">Подступают слезы, а я не одна</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Отойти в уборную или на свежий воздух.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Ополосни лицо или руки прохладной водой.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Разреши себе поплакать позже дома.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🌋</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Эмоции</span>
-                            <span class="item-name">Накипело, резкая вспышка гнева</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Сожми и разжми кулаки 5 раз.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Сбрось физический импульс (потопай, посомни бумагу).</div>
-                    <div class="step-row"><span class="step-num">3.</span> Посчитай от 10 до 1 в обратном порядке.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🔋</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Эмоции</span>
-                            <span class="item-name">Полная апатия и астения</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Отмени все необязательные дела.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Дай себе право абсолютно ничего не делать.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Проветри комнату и ляг в удобную позу.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🌀</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Эмоции</span>
-                            <span class="item-name">Сильное ощущение вины за прошлые ошибки</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Напомни: «Тогда я поступала из своих ресурсов».</div>
-                    <div class="step-row"><span class="step-num">2.</span> Переключись на настоящее момент.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Сделай 1 доброе дело для себя прямо сейчас.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🪞</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Эмоции</span>
-                            <span class="item-name">Синдром самозванца: «Я ничего не умею»</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Назови 1 реальный факт своего достижения.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Перестань сравнивать свое начало с чужим середина.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Продолжай работу маленьким шагом.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🪫</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Эмоции</span>
-                            <span class="item-name">Эмоциональное выгорание</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Поставь границы между работой и отдыхом.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Выдели 1 час только для приятного дела.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Попроси о помощи или делегируй task.</div>
-                </div>
-            </details>
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🛏️</div>
+        <div class="card-text-group">
+          <span class="card-tag">Сон</span>
+          <span class="card-title">Не могу заснуть больше 30 минут</span>
         </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
     </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Встаньте с кровати, не включайте яркий свет.</li>
+        <li class="step-item"><span class="step-num">2.</span> Займитесь скучным делом (чтение книги, монотонная уборка).</li>
+        <li class="step-item"><span class="step-num">3.</span> Возвращайтесь в кровать только при появлении сонливости.</li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- 3. Экстренные состояния -->
-    <div class="category-group">
-        <div class="category-title">Экстренные состояния</div>
-        <div class="buttons-list">
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🚨</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Экстренно</span>
-                            <span class="item-name">Паническая атака прямо сейчас</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Напомни себе: паника безопасна и пройдет через 10 минут.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Опирайся ногами на пол, упрись руками в колени.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Техника 5-4-3-2-1: увидь 5 предметов, трогай 4 текстуры.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🌫</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Экстренно</span>
-                            <span class="item-name">Дереализация / «всё нереально»</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Возьми в руки холодный предмет или кубик льда.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Назови вслух свое имя, где ты и какой сегодня день.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Похлопай себя ладонями по плечам и бедрам.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">⚡️</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Экстренно</span>
-                            <span class="item-name">Резкие плохие новости</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Сядь на устойчивый стул или кресло.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Сделай медленный вдох и задержи дыхание на 4 сек.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Свяжись с человеком, которому полностью доверяешь.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🧊</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Экстренно</span>
-                            <span class="item-name">Шок или эмоциональное онемение</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Укутайся в плед, чтобы вернуть ощущение тепла.</div>
-                    <div class="step-row"><span class="step-num">2.</span> Медленно потягивай сладкий теплый чай.</div>
-                    <div class="step-row"><span class="step-num">3.</span> Дай психике время переработать событие.</div>
-                </div>
-            </details>
-
-            <details>
-                <summary>
-                    <div class="summary-left">
-                        <div class="icon-circle">🕊</div>
-                        <div class="text-block">
-                            <span class="cat-tag">Экстренно</span>
-                            <span class="item-name">Необходима срочная поддержка</span>
-                        </div>
-                    </div>
-                    <div class="arrow-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-                </summary>
-                <div class="steps-content">
-                    <div class="step-row"><span class="step-num">1.</span> Обними себя за плечи (самообъятие).</div>
-                    <div class="step-row"><span class="step-num">2.</span> Напиши близкому: «Мне сейчас тяжело, просто будь рядом».</div>
-                    <div class="step-row"><span class="step-num">3.</span> Позвони на горячую линию психологической помощи.</div>
-                </div>
-            </details>
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">😱</div>
+        <div class="card-text-group">
+          <span class="card-tag">Сон</span>
+          <span class="card-title">Проснулась от кошмара или страха</span>
         </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
     </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Опустите ноги на пол, ощутите твердую опору.</li>
+        <li class="step-item"><span class="step-num">2.</span> Сделайте 3 глубоких вдоха и умойтесь прохладной водой.</li>
+        <li class="step-item"><span class="step-num">3.</span> Напомните себе: «Это был всего лишь сон, сейчас я в безопасности».</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">📱</div>
+        <div class="card-text-group">
+          <span class="card-tag">Сон</span>
+          <span class="card-title">Залипание в телефоне перед сном</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Включите режим «Не беспокоить» и отложите телефон на 2 метра.</li>
+        <li class="step-item"><span class="step-num">2.</span> Сделайте упражнение «Дыхание 4-7-8».</li>
+        <li class="step-item"><span class="step-num">3.</span> Вспомните 3 приятные вещи за прошедший день.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">⏰</div>
+        <div class="card-text-group">
+          <span class="card-tag">Сон</span>
+          <span class="card-title">Страх не выспаться перед важным днем</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Скажите себе: «Даже просто пассивный отдых лежа восстанавливает силы».</li>
+        <li class="step-item"><span class="step-num">2.</span> Снимите фокус со времени — уберите часы из поля зрения.</li>
+        <li class="step-item"><span class="step-num">3.</span> Выполните мышечную релаксацию от пальцев ног до головы.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CATEGORY 2: ЭКСТРЕННЫЕ СОСТОЯНИЯ (5) -->
+  <div class="category-title">Экстренные состояния</div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🚨</div>
+        <div class="card-text-group">
+          <span class="card-tag">Экстренно</span>
+          <span class="card-title">Паническая атака прямо сейчас</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Найдите глазами 5 синих предметов вокруг себя.</li>
+        <li class="step-item"><span class="step-num">2.</span> Дышите по квадрату: вдох 4 сек — задержка 4 сек — выдох 4 сек.</li>
+        <li class="step-item"><span class="step-num">3.</span> Надавите стопами в пол и почувствуйте опору.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🌫️</div>
+        <div class="card-text-group">
+          <span class="card-tag">Экстренно</span>
+          <span class="card-title">Дереализация / «всё нереально»</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Возьмите в руки холодный или шершавый предмет.</li>
+        <li class="step-item"><span class="step-num">2.</span> Громко и вслух назовите свое имя, возраст и где вы находитесь.</li>
+        <li class="step-item"><span class="step-num">3.</span> Разотрите ладони до ощущения тепла.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">⚡</div>
+        <div class="card-text-group">
+          <span class="card-tag">Экстренно</span>
+          <span class="card-title">Резкие плохие новости</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Сделайте паузу, не принимайте никаких решений первые 15 минут.</li>
+        <li class="step-item"><span class="step-num">2.</span> Выпейте стакан воды мелкими глотками.</li>
+        <li class="step-item"><span class="step-num">3.</span> Разделите ситуацию на то, что можете контролировать прямо сейчас, и то, что нет.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🧊</div>
+        <div class="card-text-group">
+          <span class="card-tag">Экстренно</span>
+          <span class="card-title">Шок или эмоциональное онемение</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Завернитесь в теплый плед или обнимите себя за плечи.</li>
+        <li class="step-item"><span class="step-num">2.</span> Пошевелите пальцами рук и ног.</li>
+        <li class="step-item"><span class="step-num">3.</span> Разрешите себе просто посидеть в тишине без действий.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🕊️</div>
+        <div class="card-text-group">
+          <span class="card-tag">Экстренно</span>
+          <span class="card-title">Необходима срочная поддержка</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Напишите близкому человеку коротко: «Мне сейчас тяжело, просто будь на связи».</li>
+        <li class="step-item"><span class="step-num">2.</span> Воспользуйтесь горячей линией психологической помощи при необходимости.</li>
+        <li class="step-item"><span class="step-num">3.</span> Напомните себе: «Просить о помощи — это нормальное проявление силы».</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: ЭМОЦИИ И СОСТОЯНИЯ (6) -->
+  <div class="category-title">Эмоции и состояния</div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🪞</div>
+        <div class="card-text-group">
+          <span class="card-tag">Эмоции</span>
+          <span class="card-title">Синдром самозванца: «Я ничего не умею»</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Запишите 3 факта о своих реальных успехах за последний год.</li>
+        <li class="step-item"><span class="step-num">2.</span> Разделите чувства и факты: мысли о некомпетентности — не есть реальность.</li>
+        <li class="step-item"><span class="step-num">3.</span> Спросите себя: «Что бы я сказал другу в такой ситуации?».</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🪫</div>
+        <div class="card-text-group">
+          <span class="card-tag">Эмоции</span>
+          <span class="card-title">Эмоциональное выгорание</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Отмените или перенесите 1 необязательное дело прямо сегодня.</li>
+        <li class="step-item"><span class="step-num">2.</span> Позвольте себе 30 минут полнейшего «безделья».</li>
+        <li class="step-item"><span class="step-num">3.</span> Сфокусируйтесь на базовом физическом комфорте (еда, сон, тепло).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">😡</div>
+        <div class="card-text-group">
+          <span class="card-tag">Эмоции</span>
+          <span class="card-title">Накипело / вспышка гнева</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Возьмите паузу 10 секунд перед любым ответом.</li>
+        <li class="step-item"><span class="step-num">2.</span> Сжимайте и разжимайте кулаки с максимальной силой 5 раз.</li>
+        <li class="step-item"><span class="step-num">3.</span> Направьте физическую энергию гнева в движение (быстрая ходьба, отжимания).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🥺</div>
+        <div class="card-text-group">
+          <span class="card-tag">Эмоции</span>
+          <span class="card-title">Чувство вины или стыда</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Проверьте: Вы действительно причинили вред или просто не оправдали чужие ожидания?</li>
+        <li class="step-item"><span class="step-num">2.</span> Если есть реальная ошибка — подумайте, как её исправить. Попросите прощения.</li>
+        <li class="step-item"><span class="step-num">3.</span> Если ошибка исправлена или неприменима — отпустите её, вы поступили из лучших побуждений.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🥀</div>
+        <div class="card-text-group">
+          <span class="card-tag">Эмоции</span>
+          <span class="card-title">Одиночество и покинутость</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Обнимите себя за плечи или свернитесь в уютное положение.</li>
+        <li class="step-item"><span class="step-num">2.</span> Напишите сообщение знакомому или отправьте короткий мем.</li>
+        <li class="step-item"><span class="step-num">3.</span> Послушайте теплый подкаст или включите спокойное видео.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🌊</div>
+        <div class="card-text-group">
+          <span class="card-tag">Эмоции</span>
+          <span class="card-title">Слезы накрывают без причины</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Не сдерживайте слезы — с ними выходит накопленный кортизол.</li>
+        <li class="step-item"><span class="step-num">2.</span> Найдите безопасное и уединенное место на 10 минут.</li>
+        <li class="step-item"><span class="step-num">3.</span> Выпейте стакан прохладной воды после того, как эмоция утихнет.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: ОТНОШЕНИЯ И ОБЩЕНИЕ (5) -->
+  <div class="category-title">Отношения и общение</div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🔥</div>
+        <div class="card-text-group">
+          <span class="card-tag">Отношения</span>
+          <span class="card-title">Ссора с близким человеком в разгаре</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Скажите: «Я чувствую, что мы закипаем. Давай сделаем перерыв на 15 минут».</li>
+        <li class="step-item"><span class="step-num">2.</span> Выйдите в другую комнату и снизьте физическое напряжение.</li>
+        <li class="step-item"><span class="step-num">3.</span> Вернитесь к разговор с позиции «Мы против проблемы», а не «Я против тебя».</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🧱</div>
+        <div class="card-text-group">
+          <span class="card-tag">Отношения</span>
+          <span class="card-title">Сложно сказать «нет» на просьбу</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Возьмите тайм-аут: «Мне нужно посмотреть график, я отвечу чуть позже».</li>
+        <li class="step-item"><span class="step-num">2.</span> Напоминайте себе: говоря «нет» другим, вы говорите «да» себе.</li>
+        <li class="step-item"><span class="step-num">3.</span> Отвечайте вежливо, но без долгих оправданий: «К сожалению, я не смогу помочь».</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">💔</div>
+        <div class="card-text-group">
+          <span class="card-tag">Отношения</span>
+          <span class="card-title">Боль после расставания / отторжения</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Примите боль как естественный процесс перестройки нервной системы.</li>
+        <li class="step-item"><span class="step-num">2.</span> Ограничьте просмотр социальных сетей человека.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сфокусируйтесь на обустройстве своего текущего комфорта.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">👥</div>
+        <div class="card-text-group">
+          <span class="card-tag">Отношения</span>
+          <span class="card-title">Страх осуждения / социофобия</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Переключите фокус с себя на окружающих — разглядывайте их детали.</li>
+        <li class="step-item"><span class="step-num">2.</span> Напомните: люди думают о вас намного меньше, чем вам кажется.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сделайте медленный выдох дольше вдоха.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🤼</div>
+        <div class="card-text-group">
+          <span class="card-tag">Отношения</span>
+          <span class="card-title">Непонимание и токсичное давление</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Используйте технику «серый камень» — отвечайте нейтрально и односложно.</li>
+        <li class="step-item"><span class="step-num">2.</span> Не вовлекайтесь в эмоциональные споры и доказывания.</li>
+        <li class="step-item"><span class="step-num">3.</span> Физически сократите время взаимодействия при первой возможности.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: РАБОТА И ДЕНЬГИ (6) -->
+  <div class="category-title">Работа и деньги</div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🎯</div>
+        <div class="card-text-group">
+          <span class="card-tag">Работа</span>
+          <span class="card-title">Прокрастинация перед важным делом</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Поставьте таймер всего на 5 минут работы.</li>
+        <li class="step-item"><span class="step-num">2.</span> Разбейте задачу на микро-действие (например, просто открыть документ).</li>
+        <li class="step-item"><span class="step-num">3.</span> Разрешите себе остановиться через 5 минут, если не пойдет.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">💸</div>
+        <div class="card-text-group">
+          <span class="card-tag">Работа</span>
+          <span class="card-title">Тревога из-за нехватки денег</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Запишите точные цифры на бумаге — неопределенность всегда страшит сильнее.</li>
+        <li class="step-item"><span class="step-num">2.</span> Напишите 3 возможных действия для решения ситуации на ближайшую неделю.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сосредоточьтесь только на шаге, который доступен сегодня.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🌋</div>
+        <div class="card-text-group">
+          <span class="card-tag">Работа</span>
+          <span class="card-title">Страх не успеть / горящие дедлайны</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Составьте список задач по приоритету от самых критичных к менее важным.</li>
+        <li class="step-item"><span class="step-num">2.</span> Сообщите заранее заказчику/коллегам реальные сроки без паники.</li>
+        <li class="step-item"><span class="step-num">3.</span> Отключите уведомления в соцсетях на время фокуса.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">📉</div>
+        <div class="card-text-group">
+          <span class="card-tag">Работа</span>
+          <span class="card-title">Критика от начальника или клиента</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Отделите конструктивные факты от эмоций говорящего.</li>
+        <li class="step-item"><span class="step-num">2.</span> Помните: критика работы — это не критика вашей личности.</li>
+        <li class="step-item"><span class="step-num">3.</span> Уточните подробности спокойным тоном: «Что конкретно стоит поправить?».</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🌪️</div>
+        <div class="card-text-group">
+          <span class="card-tag">Работа</span>
+          <span class="card-title">Слишком много задач одновременно</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Остановитесь и выгрузите абсолютно все дела из головы на лист.</li>
+        <li class="step-item"><span class="step-num">2.</span> Выберите ровно одну задачу, с которой начнёте прямо сейчас.</li>
+        <li class="step-item"><span class="step-num">3.</span> Закройте все остальные вкладки и сосредоточьтесь на ней.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🪜</div>
+        <div class="card-text-group">
+          <span class="card-tag">Работа</span>
+          <span class="card-title">Страх начинать новое (проект, работа)</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Снизьте планку ожидания: разрешите сделать первый вариант «на троечку».</li>
+        <li class="step-item"><span class="step-num">2.</span> Определите самый безопасный и минимальный шаг в задаче.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сделайте этот шаг прямо сейчас без лишних размышлений.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CATEGORY 6: ЗДОРОВЬЕ И ТЕЛО (6) -->
+  <div class="category-title">Здоровье и тело</div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🩺</div>
+        <div class="card-text-group">
+          <span class="card-tag">Здоровье</span>
+          <span class="card-title">Ипохондрия / поиска симптомов в сети</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Закройте поисковик и запретите гуглить симптомы сегодня.</li>
+        <li class="step-item"><span class="step-num">2.</span> Запишите симптомы в блокнот: при сохранении вы обсудите их с врачом.</li>
+        <li class="step-item"><span class="step-num">3.</span> Переключите внимание на легкую физическую активность.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🫀</div>
+        <div class="card-text-group">
+          <span class="card-tag">Здоровье</span>
+          <span class="card-title">Учащенное сердцебиение от страха</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Опустите лицо в прохладную воду на несколько секунд (нырятельный рефлекс).</li>
+        <li class="step-item"><span class="step-num">2.</span> Сделайте медленный вдох на 4 счета и длинный выдох на 8 счетов.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сядьте удобно, расслабьте плечи и челюсть.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🫁</div>
+        <div class="card-text-group">
+          <span class="card-tag">Здоровье</span>
+          <span class="card-title">Чувство нехватки воздуха / ком в горле</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Перестаньте делать судорожные глубокие вдохи.</li>
+        <li class="step-item"><span class="step-num">2.</span> Выдохните воздух полностью и сделайте паузу перед легким вдохом.</li>
+        <li class="step-item"><span class="step-num">3.</span> Помассируйте мышцы шеи и плечевого пояса.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🫨</div>
+        <div class="card-text-group">
+          <span class="card-tag">Здоровье</span>
+          <span class="card-title">Мышечный зажим или тремор</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Усильте дрожь на 10-15 секунд — дайте телу сбросить напряжение.</li>
+        <li class="step-item"><span class="step-num">2.</span> Потрясите руками и ногами, как бы сбрасывая воду.</li>
+        <li class="step-item"><span class="step-num">3.</span> Примите теплый душ или приложите грелку.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🥱</div>
+        <div class="card-text-group">
+          <span class="card-tag">Здоровье</span>
+          <span class="card-title">Хроническая усталость и упадок сил</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Проверьте базовые потребности: когда вы ели и пили воду?</li>
+        <li class="step-item"><span class="step-num">2.</span> Выйдите на свежий воздух на 10-15 минут прогулки.</li>
+        <li class="step-item"><span class="step-num">3.</span> Позвольте себе дневной сон не более 20 минут.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🍕</div>
+        <div class="card-text-group">
+          <span class="card-tag">Здоровье</span>
+          <span class="card-title">Заедание стресса / эмоциональный голод</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Сделайте паузу в 5 минут перед тем, как взять еду.</li>
+        <li class="step-item"><span class="step-num">2.</span> Спросите себя: «Какую эмоцию я пытаюсь заглушить прямо сейчас?».</li>
+        <li class="step-item"><span class="step-num">3.</span> Выпейте чашку теплого чая или воды с лимоном.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CATEGORY 7: МЫСЛИ И УСТАНОВКИ (5) -->
+  <div class="category-title">Мысли и установки</div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🔮</div>
+        <div class="card-text-group">
+          <span class="card-tag">Мысли</span>
+          <span class="card-title">Катастрофизация / сценарии наихудшего</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Спросите себя: «Какова реальная вероятность этого исхода?».</li>
+        <li class="step-item"><span class="step-num">2.</span> Опишите самый наилучший сценарий развития событий.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сформулируйте наиболее реалистичный средний вариант.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">👑</div>
+        <div class="card-text-group">
+          <span class="card-tag">Мысли</span>
+          <span class="card-title">Перфекционизм: «Ибо идеально, либо никак»</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Примите правило: «Сделанное лучше идеального».</li>
+        <li class="step-item"><span class="step-num">2.</span> Определите, где достаточно уровня 70% качества.</li>
+        <li class="step-item"><span class="step-num">3.</span> Похвалите себя за завершение работы, а не за идеальность.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">⚖️</div>
+        <div class="card-text-group">
+          <span class="card-tag">Мысли</span>
+          <span class="card-title">Сравнение себя с успехами других</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Помните: вы сравниваете свою изнанку с чужой витриной.</li>
+        <li class="step-item"><span class="step-num">2.</span> Сравните себя сегодняшнего с собой год назад.</li>
+        <li class="step-item"><span class="step-num">3.</span> Временно отпишитесь от триггерных аккаунтов.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🧭</div>
+        <div class="card-text-group">
+          <span class="card-tag">Мысли</span>
+          <span class="card-title">Потеря смысла / «Зачем всё это?»</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Не ищите масштабный смысл прямо сейчас — сузьте горизонт до 1 часа.</li>
+        <li class="step-item"><span class="step-num">2.</span> Сделайте одно маленькое приятное действие для своего комфорта.</li>
+        <li class="step-item"><span class="step-num">3.</span> Запишите свои базовые ценности на текущий период.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🔁</div>
+        <div class="card-text-group">
+          <span class="card-tag">Мысли</span>
+          <span class="card-title">Мысленная жвачка (руминация)</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Скажите себе вслух: «Стоп! Я опять кручу эту мысль».</li>
+        <li class="step-item"><span class="step-num">2.</span> Переключите мозг на сложную задачу (считайте от 100 назад по 7).</li>
+        <li class="step-item"><span class="step-num">3.</span> Смените физическую обстановку или войдите в другую комнату.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CATEGORY 8: ИЗМЕНЕНИЯ И БУДУЩЕЕ (5) -->
+  <div class="category-title">Изменения и будущее</div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">📦</div>
+        <div class="card-text-group">
+          <span class="card-tag">Будущее</span>
+          <span class="card-title">Страх перемен / переезд / смена работы</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Запишите: что остается неизменным и знакомым вне зависимости от перемен.</li>
+        <li class="step-item"><span class="step-num">2.</span> Разбейте процесс изменений на малые управляемые этапы.</li>
+        <li class="step-item"><span class="step-num">3.</span> Создайте себе островки стабильности в новых условиях.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🔀</div>
+        <div class="card-text-group">
+          <span class="card-tag">Будущее</span>
+          <span class="card-title">Страх сделать неправильный выбор</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Примите: идеального решения не существует, у каждого есть плюсы и минусы.</li>
+        <li class="step-item"><span class="step-num">2.</span> Запишите плюсы обоих вариантов и дайте им оценку от 1 до 10.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сделайте выбор на основе имеющихся данных — вы всегда сможете скорректировать путь.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🕳️</div>
+        <div class="card-text-group">
+          <span class="card-tag">Будущее</span>
+          <span class="card-title">Страх перед полной неопределенностью</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Сфокусируйтесь на том, что вы контролируете в пределах сегодняшнего дня.</li>
+        <li class="step-item"><span class="step-num">2.</span> Составьте четкий рутинный план действий на ближайшие 3 часа.</li>
+        <li class="step-item"><span class="step-num">3.</span> Вернитесь к ощущению собственного тела в настоящем моменте.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">⏳</div>
+        <div class="card-text-group">
+          <span class="card-tag">Будущее</span>
+          <span class="card-title">Сожаления о прошлом / «Надо было иначе»</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Напомните себе: вы поступали наилучшим образом из доступного тогда ресурса.</li>
+        <li class="step-item"><span class="step-num">2.</span> Извлеките 1 главный урок из этой ситуации на будущее.</li>
+        <li class="step-item"><span class="step-num">3.</span> Переведите мысли на то, какое действие вы совершите сегодня.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🚀</div>
+        <div class="card-text-group">
+          <span class="card-tag">Будущее</span>
+          <span class="card-title">Синдром отложенной жизни</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Перестаньте ждать «идеального момента» для маленьких радостей.</li>
+        <li class="step-item"><span class="step-num">2.</span> Достаньте и используйте красивую вещь прямо сейчас.</li>
+        <li class="step-item"><span class="step-num">3.</span> Запланируйте небольшое приятное событие на эту неделю.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CATEGORY 9: БАЗОВЫЕ ПРАКТИКИ (6) -->
+  <div class="category-title">Базовые практики</div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🧘‍♀️</div>
+        <div class="card-text-group">
+          <span class="card-tag">Практики</span>
+          <span class="card-title">Экспресс-заземление 5-4-3-2-1</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Найдите 5 предметов, 4 текстуры на ощупь, 3 звука.</li>
+        <li class="step-item"><span class="step-num">2.</span> Найдите 2 запаха и 1 вкус.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сделайте глубокий медленный вдох.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🔲</div>
+        <div class="card-text-group">
+          <span class="card-tag">Практики</span>
+          <span class="card-title">Дыхание по квадрату</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Вдох — 4 секунды.</li>
+        <li class="step-item"><span class="step-num">2.</span> Задержка дыхания — 4 секунды.</li>
+        <li class="step-item"><span class="step-num">3.</span> Выдох — 4 секунды, пауза — 4 секунды (повторить 4 раза).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">💪</div>
+        <div class="card-text-group">
+          <span class="card-tag">Практики</span>
+          <span class="card-title">Мышечная релаксация по Джекобсону</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Сильно напрягите мышцы ног на 5 секунд, затем полностью расслабьте.</li>
+        <li class="step-item"><span class="step-num">2.</span> Напрягите пресс и спину на 5 секунд — расслабьте.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сжатие кулаков и плечевого пояса — сброс напряжения.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">🦋</div>
+        <div class="card-text-group">
+          <span class="card-tag">Практики</span>
+          <span class="card-title">Техника «Объятия бабочки»</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Скрестите руки на груди, зацепившись большими пальцами.</li>
+        <li class="step-item"><span class="step-num">2.</span> Поочередно похлопывайте ладонями по ключицам в медленном ритме.</li>
+        <li class="step-item"><span class="step-num">3.</span> Дышите ровно до снижения тревоги.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">📝</div>
+        <div class="card-text-group">
+          <span class="card-tag">Практики</span>
+          <span class="card-title">Техника фрирайтинга (свободный текст)</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Возьмите листок и ручку, поставьте таймер на 5 минут.</li>
+        <li class="step-item"><span class="step-num">2.</span> Пишите всё подряд, не задумываясь о грамматике и логике.</li>
+        <li class="step-item"><span class="step-num">3.</span> Сомните листок и выбросьте.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-info">
+        <div class="card-icon">☀️</div>
+        <div class="card-text-group">
+          <span class="card-tag">Практики</span>
+          <span class="card-title">Практика самосострадания</span>
+        </div>
+      </div>
+      <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <ul class="step-list">
+        <li class="step-item"><span class="step-num">1.</span> Положите ладонь на область сердца или животи.</li>
+        <li class="step-item"><span class="step-num">2.</span> Скажите себе теплые слова: «Сейчас мне трудно, но я рядом с собой».</li>
+        <li class="step-item"><span class="step-num">3.</span> Сделайте медленный мягкий вдох и почувствуйте тепло руки.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleCard(card) {
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
+    if (!isOpen) {
+      card.classList.add('open');
+    }
+  }
+</script>
 
 </body>
 </html>
-
