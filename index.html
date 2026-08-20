@@ -1,4 +1,4 @@
-html_content = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -603,11 +603,5 @@ html_content = '''<!DOCTYPE html>
 
 </body>
 </html>
-'''
-
-with open('pocket_helper_light.html', 'w', encoding='utf-8') as f:
-    f.write(html_content)
-
-from weasyprint import HTML
-HTML('pocket_helper_light.html').write_pdf('pocket_helper_light.pdf')
+f('pocket_helper_light.pdf')
 print("Light version generated successfully.")
