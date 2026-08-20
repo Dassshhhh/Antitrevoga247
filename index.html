@@ -1,0 +1,1046 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ru"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Экстренный сброс 24/7&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--bg: #f7f6f2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--card-bg: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-main: #2c322b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-sub: #8c958c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--accent-bg: #e5ebe5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--accent-icon: #5a665a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--border: #edf0ed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>* { box-sizing: border-box; margin: 0; padding: 0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-main);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: var(--font);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px 16px 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.app-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 440px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-info {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-sub);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-count {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-sub);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #eae8e1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.category-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-icon);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 24px 4px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.buttons-list {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>details {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--card-bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 6px rgba(0,0,0,0.015);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>details[open] {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #d1d8d1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 12px rgba(0,0,0,0.03);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>summary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>list-style: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>user-select: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>summary::-webkit-details-marker { display: none; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.summary-left {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.icon-circle {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--accent-bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.text-block {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cat-tag {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-sub);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.item-name {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-main);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.3;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.arrow-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f7f9f7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.arrow-btn svg {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stroke: var(--text-sub);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>fill: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stroke-width: 2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>details[open] .arrow-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: rotate(180deg);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.steps-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 4px 18px 16px 68px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-top: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #fafbf9;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.step-row { margin-top: 10px; font-size: 13.5px; line-height: 1.4; color: #4a544b; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.step-num { font-weight: 700; color: var(--accent-icon); margin-right: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="app-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="header-title"&gt;Все алгоритмы&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="header-count"&gt;49&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 1. СЕМЬЯ И ДЕТИ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Семья и дети&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;👶&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Семья&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;У ребёнка незнакомые симптомы&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Запрет на поиск в интернете на 20 минут.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Запиши факт: температура/сыпь/кашель без домыслов.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сделай 1 целевое действие: вызови врача или дай воду.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;😴&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Семья&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Ребёнок долго спит, проверяю дыхание&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Положи руку себе на грудь, сбрось напряжение.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Проверь дыхание 1 раз, не будя ребенка.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Отодвинься от кроватки и налей себе воды.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;📞&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Семья&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Близкий долго не отвечает на звонок&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Напомни себе: «Занят, включен виброрежим, за рулем».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Положи телефон экраном вниз.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Поставь таймер на 15 минут до следующего звонка.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;💔&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Семья&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Боюсь, что делаю с ребёнком что-то не так&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Снизь планку: идеальных родителей не существует.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Если включила мультики — выдохни, это твой ресурс.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Обними ребенка на 10 секунд без слов.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🗯&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Семья&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Сорвалась и накричала на ребенка&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Выйди в другую комнату на 2 минуты, выдохни.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Скажи себе: «Я ошиблась, но я не плохая мать».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Подойди к ребенку и спокойно извинись.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🌩&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Семья&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Конфликт и ссора с партнером&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Объяви паузу: «Мне нужно 10 минут остыть».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Умойся прохладной водой.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Вернись к разговору через «Я-сообщения».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 2. ЗДОРОВЬЕ И ИПОХОНДРИЯ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Здоровье и ипохондрия&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🩺&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Здоровье&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Обнаружен новый незнакомый симптом&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Выпей полстакана прохладной воды.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Дай телу 30 минут: адреналин усиливает ощущения.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Не ищи симптомы на форумах.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;😵&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Здоровье&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Закружилась голова, кажется, что упаду&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Сядь или прислонись спиной к стене.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Сильно упрись пятками в пол.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сосредоточься на ощущении опоры под ногами.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;😮‍💨&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Здоровье&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Не могу вдохнуть полной грудью&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Перестань делать частые глубокие вдохи.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Сделай длинный и медленный ВЫДОХ.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Дыши по схеме: вдох на 3 счета, выдох на 6.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🐍&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Здоровье&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Подозреваю у себя опасную болезнь&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Раздели: «У меня есть тревожная мысль, а не диагноз».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Запиши мысль на листок и убери его.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Вернись к физическому делу (умывание/уборка).&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;💓&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Здоровье&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Сильно колотится сердце&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Напомни себе: сердце здоровое, это выброс адреналина.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Нажми слегка на закрытые веки на 5 секунд.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Медленно выпей полстакана холодной воды.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🫨&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Здоровье&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Дрожь в теле и внутренний тремор&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Не сдерживай дрожь — потряси руками и ногами специально.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Накинь теплое плед или кофту.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сделай 3 глубоких вдоха с громким выдохом.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 3. РАБОТА И СОЦИУМ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Работа и социум&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;📩&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Работа&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Паника перед собеседованием&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Опусти плечи и расслабь челюсть.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Напомни: вы выбираете друг друга на равных.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Держи перед собой шпаргалку с 2 тезисами.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;📞&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Работа&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Ступор перед важным звонком&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Напиши первые 3 слова первой фразы.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Сделай один плавный выдох.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Нажми «Вызов» на счет три.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;💬&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Работа&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Написала резкий ответ и жалею&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Отложи телефон на 5 минут.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Любой контекст можно сгладить уточнением.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Напиши короткое нейтральное пояснение.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;⌛️&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Работа&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Не успеваю по дедлайнам&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Выпиши все задачи списком.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Выбери ровно ОДНО микро-действие на 15 минут.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Предупреди о задержке вежливым шаблоном.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🙅‍♀️&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Работа&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Боюсь отказать / сказать «нет»&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Возьми паузу: «Мне нужно сверять расписание».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; «Нет» задаче — это не «нет» человеку.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Отправь лаконичный отказ без оправданий.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🗣&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Работа&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх разговора с иностранцем&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Говори простыми базовыми словами.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Используй жесты или переводчик.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Улыбнись: собеседник хочет понять, а не проверять.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;📊&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Работа&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх перед публичным выступлением&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Найди доброжелательное лицо в зале.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Сделай паузу 3 секунды перед первой фразой.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Держи в руках кликер или маркер.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 4. ПОВСЕДНЕВНОСТЬ И СОЦИУМ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Повседневность&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🚇&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Социум&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Накрывает в транспорте / очереди&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Найди глазами 3 предмета зеленого цвета.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Расслабь плечи и опусти их вниз.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сфокусируйся на треке в наушниках.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;👥&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Социум&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Кажется, все на меня смотрят&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Посмотри вокруг: люди погружены в телефоны.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Поправь одежду для возврата контроля.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Продолжай идти в привычном темпе.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🤝&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Социум&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Встреча с неприятным человеком&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Представь невидимую стену между вами.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Заранее подготовь предлог уйти через 20 минут.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сожми в кармане ключи или монетку.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;❓&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Социум&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх нового и неизвестного&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Разбей дело на 2-минутный шаг.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Скажи: «Я просто пробую, а не решаю навсегда».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сделай первое простое действие.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🚪&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Социум&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх зайти в незнакомое место&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Осмотри вход снаружи, восстанови дыхание.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Зайди и сразу найди место, где можно встать.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Достань телефон, чтобы почувствовать комфорт.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 5. ДЕНЬГИ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Деньги&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;💳&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Деньги&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Потратила лишнее, стыд и страх&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Закрой приложение банка.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; «Покупка сделана, ругать себя бесполезно».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Наметь мягкий план расходов на завтра.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;📈&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Деньги&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх за экономику и будущее&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Выключи новости на 24 часа.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Вернись к тому, что под контролем прямо сейчас.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Выполни простое бытовое дело.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;💸&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Деньги&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх остаться без средств&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Назови 3 имеющихся ресурса прямо сейчас.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Вспомни, как раньше справлялась с трудностями.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сделай 1 целевое действие для устойчивости.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;💼&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Деньги&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх потери работы / дохода&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Запиши 3 своих ключевых навыка.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Напомни: рынок широк, варианты всегда есть.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Обнови или просмотри свое резюме.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 6. БЕССОННИЦА И ВЕЧЕР --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Сон и вечер&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🌃&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Сон&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Ночные мысли: «А что если...»&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Положи телефон экраном вниз.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Переверни подушку прохладной стороной.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Перечисляй предметы в комнате по алфавиту.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🌙&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Сон&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Проснулась в 3 ночи от тревоги&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Накройся одеялом с головой на 1 минуту.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Сделай 5 длинных плавных выдохов.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Повтори: «Ночью мозг искажает всё, я в безопасности».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;⏰&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Сон&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх проспать важный будильник&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Проверь время будильника и громкость 1 раз.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Поставь 2-й будильник с разницей в 5 минут.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Убери телефон подальше от кровати.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🛏&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Сон&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Кручусь 2 часа и не могу заснуть&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Встань с кровати на 10 минут.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Выпей немного теплой воды в полумраке.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Вернись в кровать, когда появится сонливость.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 7. ПОЕЗДКИ И ФОБИИ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Поездки и фобии&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;✈️&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Поездки&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Тревога перед поездой / переездом&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Проверь документы и билеты ровно 1 раз.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; «Решаю вопросы по мере их поступления».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Возьми в руку привычный предмет-антистресс.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🚆&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Поездки&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх опоздать на рейс / поезд&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Заложи +20 минут на случай пробок.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Сложи сумку у выхода заранее.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Перестань постоянно проверять часы.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🕷&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Фобии&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Насекомое / паук в комнате&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Отоди на безопасные 2 шага.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Выдохни и сбрось оцепенение.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Накрой стаканом или позови кого-то.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🌩&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Фобии&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх грозы / сильной непогоды&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Закрой окна и задерни шторы.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Включи спокойный фоновый звук или фильм.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Напомни себе: здание надежно защищает.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🛗&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Фобии&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх застрять в лифте&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Встань ровно, оперевшись спиной на стенку.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; В лифте есть вентиляция, воздуха достаточно.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сфокусируйся на экране телефона.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 8. ОСТРЫЙ СТРАХ И ПАНИКА --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Острый страх и паника&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🚨&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Паника&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Нахлынула внезапная паника&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Ополосни лицо и руки холодной водой.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Назови вслух 5 окружающих предметов.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Интенсивно потопай ногами 10 секунд.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🧠&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Паника&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Навязчивые мысли раскручивают страх&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Скажи вслух: «Стоп, это просто мысль».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Переключи внимание на физическое ощущение.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сосчитай от 100 назад по 7.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🧊&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Паника&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Чувство оцепенения и ступор&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Пососи кислую конфету или лимон.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Сожми и разжми кулаки 10 раз.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сделай громкий выдох со звуком.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🌫&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Паника&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Кажется, что все вокруг нереально&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Потрогай текстурную вещь (ткань/стол).&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Назови свое имя и сегодняшнюю дату.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Плотно прижми стопы к полу.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🤯&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Паника&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Страх сойти с ума / потерять контроль&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; При тревоге никто не сходит с ума, это защита.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Сядь на стул и обними себя за плечи.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Подыши ровно 2 минуты.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 9. ЭМОЦИИ И САМООЦЕНКА --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="category-title"&gt;Эмоции и самооценка&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🥺&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Эмоции&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Острое чувство вины перед кем-то&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Раздели вину и ответственность.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Если можно исправить — сделай 1 шаг.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Если нет — скажи себе: «Я поступила как могла».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🌊&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Эмоции&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Стыд за сказанное или сделанное&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Люди забывают чужие ошибки через день.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Положи руку на грудь и глубоко выдохни.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Переключись на физическую активность.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🎭&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Эмоции&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Синдром самозванца: «Я ничего не умею»&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Выпиши 3 реальных факта своих успехов.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Самозванцы не сомневаются в себе.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Сделай очередную задачу без перфекционизма.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;🫠&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Эмоции&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Полное выгорание и отсутствие сил&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Отмени или перенеси 1 необязательное дело.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Лежи 15 минут без телефона и мыслей.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Выпей теплый чай в тишине.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="icon-circle"&gt;😡&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="cat-tag"&gt;Эмоции&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="item-name"&gt;Накипела злость и раздражение&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="arrow-btn"&gt;&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M6 9l6 6 6-6"/&gt;&lt;/svg&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="steps-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;1.&lt;/span&gt; Потопай ногами или порви листок бумаги.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;2.&lt;/span&gt; Назови про себя: «Я сейчас очень злюсь».&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step-row"&gt;&lt;span class="step-num"&gt;3.&lt;/span&gt; Выдохни через сжатые губы.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
